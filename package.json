@@ -1,0 +1,20 @@
+{
+  "name": "accombnb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobsirl/accombnb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tobsirl/accombnb/issues"
+  },
+  "homepage": "https://github.com/tobsirl/accombnb#readme"
+}
