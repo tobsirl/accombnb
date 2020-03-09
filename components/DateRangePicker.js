@@ -14,6 +14,8 @@ const parseDate = (str, format, locale) => {
 const formatDate = (date, format, locale) =>
   dateFnsFormat(date, format, { locale });
 
+const format = 'dd MMM yyyy';
+
 export default () => {
   const [stateDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -27,6 +29,16 @@ export default () => {
           format={format}
           parseDate={parseDate}
           placeholder={`${dateFnsFormat(new Date(), format)}`}
+          dayPickerProps={{
+            modifiers: {
+              disabled: {
+                before: new Date()
+              }
+            }
+          }}
+          onDayChange={day => {
+            setStartDate(day);
+          }}
         />
       </div>
       <div>
@@ -36,6 +48,16 @@ export default () => {
           format={format}
           parseDate={parseDate}
           placeholder={`${dateFnsFormat(new Date(), format)}`}
+          dayPickerProps={{
+            modifiers: {
+              disabled: {
+                before: new Date()
+              }
+            }
+          }}
+          onDayChange={day => {
+            setEndDate(day);
+          }}
         />
       </div>
       <style jsx>{`
