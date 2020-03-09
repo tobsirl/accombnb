@@ -1,6 +1,9 @@
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
+import dateFnsFormat from 'date-fns/format';
+import dateFnsParse from 'date-fns/parse';
+
 export default () => (
   <div className="date-range-picker-container">
     <div>
