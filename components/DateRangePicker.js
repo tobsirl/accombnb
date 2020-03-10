@@ -19,8 +19,20 @@ const today = new Date();
 const tomorrow = new Date(today);
 tomorrow.setDate(tomorrow.getDate() + 1);
 
+const numberOfNightsBetweenDates = (startDate, endDate) => {
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+  let dayCount = 0;
+
+  while (end > start) {
+    dayCount++;
+    start.setDate(start.getDate() + 1);
+  }
+  return dayCount;
+};
+
 export default () => {
-  const [stateDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
   return (
@@ -30,6 +42,7 @@ export default () => {
         <DayPickerInput
           formatDate={formatDate}
           format={format}
+          value={startDate}
           parseDate={parseDate}
           placeholder={`${dateFnsFormat(new Date(), format)}`}
           dayPickerProps={{
@@ -52,6 +65,7 @@ export default () => {
         <DayPickerInput
           formatDate={formatDate}
           format={format}
+          value={endDate}
           parseDate={parseDate}
           placeholder={`${dateFnsFormat(new Date(), format)}`}
           dayPickerProps={{
