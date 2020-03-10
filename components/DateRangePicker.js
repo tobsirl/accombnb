@@ -15,6 +15,9 @@ const formatDate = (date, format, locale) =>
   dateFnsFormat(date, format, { locale });
 
 const format = 'dd MMM yyyy';
+const today = new Date();
+const tomorrow = new Date(today);
+tomorrow.setDate(tomorrow.getDate() + 1);
 
 export default () => {
   const [stateDate, setStartDate] = useState(new Date());
@@ -31,9 +34,12 @@ export default () => {
           placeholder={`${dateFnsFormat(new Date(), format)}`}
           dayPickerProps={{
             modifiers: {
-              disabled: {
-                before: new Date()
-              }
+              disabled: [
+                new Date(),
+                {
+                  before: new Date()
+                }
+              ]
             }
           }}
           onDayChange={day => {
@@ -50,9 +56,12 @@ export default () => {
           placeholder={`${dateFnsFormat(new Date(), format)}`}
           dayPickerProps={{
             modifiers: {
-              disabled: {
-                before: new Date()
-              }
+              disabled: [
+                new Date(),
+                {
+                  before: new Date()
+                }
+              ]
             }
           }}
           onDayChange={day => {
