@@ -35,6 +35,17 @@ const House = props => {
                 setDateChosen(true);
               }}
             />
+            {dateChosen && (
+              <div>
+                <h2>Price per night</h2>
+                <p>${props.house.price}</p>
+                <h2>Total price for booking</h2>
+                <p>
+                  ${(numberOfNightBetweenDates * props.house.price).toFixed(2)}
+                </p>
+                <button class="reserve">Reserve</button>
+              </div>
+            )}
           </aside>
           <style jsx>{`
             .container {
