@@ -14,17 +14,19 @@ const calcNumberOfNightsBetweenDates = (startDate, endDate) => {
     dayCount++;
     start.setDate(start.getDate() + 1);
   }
-  
+
   return dayCount;
 };
 
 const House = props => {
+  const [numberOfNightsBetweenDates, setNumberOfNightsBetweenDates] = useState(
+    0
+  );
   const [dateChosen, setDateChosen] = useState(false);
 
   return (
-    <Layout>
-      content=
-      {
+    <Layout
+      content={
         <div className="container">
           <Head>
             <title>{props.house.title}</title>
@@ -44,7 +46,9 @@ const House = props => {
             <h2>Add dates for prices</h2>
             <DateRangePicker
               datesChanged={(startDate, endDate) => {
-                console.log(startDate, endDate);
+                setNumberOfNightsBetweenDates(
+                  calcNumberOfNightsBetweenDates(startDate, endDate)
+                );
                 setDateChosen(true);
               }}
             />
@@ -54,7 +58,7 @@ const House = props => {
                 <p>${props.house.price}</p>
                 <h2>Total price for booking</h2>
                 <p>
-                  ${(numberOfNightBetweenDates * props.house.price).toFixed(2)}
+                  ${(numberOfNightsBetweenDates * props.house.price).toFixed(2)}
                 </p>
                 <button class="reserve">Reserve</button>
               </div>
@@ -74,7 +78,7 @@ const House = props => {
           `}</style>
         </div>
       }
-    </Layout>
+    />
   );
 };
 
