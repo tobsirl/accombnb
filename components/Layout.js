@@ -4,11 +4,14 @@ import Header from './Header';
 
 const Layout = props => {
   const [showModal, setShowModal] = useState(true);
+  const [showLoginModal, setShowLoginModal] = useState(true);
+  const [showRegistrationModal, setShowRegistrationModal] = useState(false);
+  
   return (
     <div>
       <Header />
       <main>{props.content}</main>
-      {showModal && <Modal>test</Modal>}
+      {showModal && <Modal close={() => setShowModal(false)}>test</Modal>}
 
       <style jsx global>{`
         body {
