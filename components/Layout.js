@@ -1,10 +1,14 @@
-import Header from './Header'
+import { useState } from 'react';
+import Modal from './Modal';
+import Header from './Header';
 
 const Layout = props => {
+  const [showModal, setShowModal] = useState(true);
   return (
     <div>
       <Header />
       <main>{props.content}</main>
+      {showModal && <Modal>test</Modal>}
 
       <style jsx global>{`
         body {
@@ -29,7 +33,7 @@ const Layout = props => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
