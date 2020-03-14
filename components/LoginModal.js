@@ -7,6 +7,12 @@ export default () => (
         <input id="password" type="password" placeholder="Password" />
         <button>Log in</button>
       </form>
+      <p>
+        Don't have an account yet?{' '}
+        <a href="javascript:;" onClick={() => props.showSignup()}>
+          Sign up
+        </a>
+      </p>
     </div>
   </>
 );

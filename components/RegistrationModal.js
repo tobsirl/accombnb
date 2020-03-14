@@ -12,6 +12,12 @@ export default () => (
         />
         <button>Sign up</button>
       </form>
+      <p>
+        Already have an account?{' '}
+        <a href="javascript:;" onClick={() => props.showLogin()}>
+          Log in
+        </a>
+      </p>
     </div>
   </>
 );
