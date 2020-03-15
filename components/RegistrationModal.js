@@ -1,4 +1,4 @@
-export default () => (
+export default props => (
   <>
     <h2>Sign up</h2>
     <div>
