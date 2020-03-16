@@ -5,8 +5,8 @@ import LoginModal from './LoginModal';
 import RegistrationModal from './RegistrationModal';
 
 const Layout = props => {
-  const [showModal, setShowModal] = useState(true);
-  const [showLoginModal, setShowLoginModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
 
   return (
