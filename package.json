@@ -21,6 +21,7 @@
   "homepage": "https://github.com/tobsirl/accombnb#readme",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "axios": "^0.19.2",
     "date-fns": "^2.10.0",
     "next": "^9.2.2",
     "react": "^16.13.0",
