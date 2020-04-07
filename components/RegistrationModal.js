@@ -11,7 +11,7 @@ export default props => {
       <h2>Sign up</h2>
       <div>
         <form
-          onSubmit={event => {
+          onSubmit={async event => {
             const response = await axios.post('api/auth/register', {email, password, passwordConfirmation})
             console.log(response);
             event.preventDefault();
