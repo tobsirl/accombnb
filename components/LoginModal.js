@@ -1,9 +1,9 @@
-export default props => (
+export default (props) => (
   <>
     <h2>Log in</h2>
     <div>
       <form
-        onSubmit={event => {
+        onSubmit={(event) => {
           alert('Log in!');
           event.preventDefault();
         }}
