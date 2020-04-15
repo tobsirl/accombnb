@@ -8,5 +8,10 @@
   },
   "keywords": [],
   "author": "Paul Tobin <tobster111@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "next": "^9.3.5",
+    "nodemon": "^2.0.3"
+  }
 }
