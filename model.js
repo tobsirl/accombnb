@@ -1,5 +1,11 @@
-import { Sequelize, Model, DataTypes } from 'sequelize';
-import { user, password, host, database } from './database.js';
+const bcrypt = require('bcrypt');
+const Sequelize = require('sequelize');
+
+const Model = Sequelize.Model;
+const DataTypes = Sequelize.DataTypes;
+
+const Database = require('./database.js');
+const { user, password, host, database } = Database;
 
 const sequelize = new Sequelize(database, user, password, {
   host,
@@ -7,7 +13,7 @@ const sequelize = new Sequelize(database, user, password, {
   logging: false,
 });
 
-export class User extends Model {}
+class User extends Model {}
 
 User.init(
   {
@@ -26,3 +32,6 @@ User.init(
     timestamps: false,
   }
 );
+
+exports.User = User;
+exports.sequelize = sequelize;
