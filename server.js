@@ -43,6 +43,16 @@ passport.use(
   )
 );
 
+passport.serializeUser((user, done) => {
+  done(null, user.email);
+});
+
+passport.deserializeUser((email, done) => {
+  User.findOne({ where: { email: email } }).then((user) => {
+    done(null, user);
+  });
+});
+
 nextApp.prepare().then(() => {
   const server = express();
 
@@ -67,7 +77,10 @@ nextApp.prepare().then(() => {
         client: redisClient,
         ttl: 86400,
       }),
-    })
+    }),
+
+    passport.initialize(),
+    passport.session()
   );
 
   server.all('*', (req, res) => {
