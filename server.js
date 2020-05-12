@@ -85,6 +85,7 @@ nextApp.prepare().then(() => {
 
   // routes
   server.post('/api/auth/register', async (req, res) => {
+    console.log(`here`);
     const { email, password, passwordconfirmation } = req.body;
 
     if (password !== passwordconfirmation) {
@@ -96,7 +97,18 @@ nextApp.prepare().then(() => {
 
     try {
       const user = await User.create({ email, password });
-      res.end(JSON.stringify({ status: 'success', message: 'User added' }));
+
+      req.login(user, (err) => {
+        if (err) {
+          res.statusCode = 500;
+          res.end(JSON.stringify({ status: 'error', message: err }));
+          return;
+        }
+
+        return res.end(
+          JSON.stringify({ status: 'success', message: 'Logged in' })
+        );
+      });
     } catch (error) {
       res.statusCode = 500;
       let message = 'An error occurred';
